@@ -1,0 +1,49 @@
+body {
+	background: url("https://www.toptal.com/designers/subtlepatterns/patterns/stardust.png");
+    background-attachment: fixed;	
+    text-align: center;
+}
+
+h1 {
+	color: gray;
+}
+
+.jumbotron {
+	margin-top: 80px;
+}
+
+.panel {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	border: white 2px solid;
+	border-radius: 5px; 
+}
+
+.panel-heading {
+	background: #A3A3A3;
+	height: 60px;
+	font-size: 24px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding-top: 10px;
+}
+
+.panel-body {
+	background: #FAFAFA;
+}
+
+#pb-top {
+	height: 60px;
+	font-size: 24px;
+	padding-top: 10px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#pb-bottom {
+	height: 60px;
+	font-size: 24px;
+	border-radius: 5px;
+	padding-top: 10px;
+
+}
