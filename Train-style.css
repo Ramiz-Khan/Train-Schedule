@@ -8,6 +8,19 @@ h1 {
 	color: gray;
 }
 
+a {
+	color:	#17a2b8;
+}
+
+.navbar {
+	background: #FAFAFA;
+	position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 2000;
+    border-bottom: #454545 2px solid; 
+}
+
 .jumbotron {
 	margin-top: 80px;
 }
@@ -15,8 +28,9 @@ h1 {
 .panel {
 	margin-top: 30px;
 	margin-bottom: 20px;
-	border: white 2px solid;
+	border: #454545 2px solid;
 	border-radius: 5px; 
+	z-index: 100;
 }
 
 .panel-heading {
