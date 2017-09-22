@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Train Schedule</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="Train-style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="Train.js"></script> 
+</head>
+
+<body>
+
+	<header>
+
+		<nav class="navbar navbar-default">
+
+		  <div class="container-fluid">
+
+		    <div class="navbar-header">
+
+		      <a class="navbar-brand" href="#">
+
+		        <img alt="Train Schedule" src="...">
+
+		      </a>
+
+		    </div>
+
+		  </div>
+
+		</nav>
+
+	</header>
+
+	<div class="container">
+			
+			<div class="jumbotron">
+
+				<h1>Train Schedule</h1>
+
+				<div href="#" class="btn btn-info" id="button">Click Me to Test JS</div>
+
+			</div>
+
+			<div class="row">
+				
+				<div class="col-lg-12">
+					
+					<div class="panel panel-default">
+						
+						<div class="panel-heading">Train Schedule</div>
+						<div class="panel-body" id="pb-top">My Panel Content (Train Schedule)</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="row">
+				
+				<div class="col-lg-12">
+					
+					<div class="panel panel-default">
+						
+						<div class="panel-heading">Add a New Train</div>
+
+							<div class="panel-body" id="pb-bottom">
+								 <form>
+			                          <div class="form-group">
+			                            <label for="name">Employee Name:</label>
+			                            <input type="text" class="form-control" id="name">
+			                          </div>
+			                          <div class="form-group">
+			                            <label for="role">Role:</label>
+			                            <input type="text" class="form-control" id="role">
+			                          </div>
+			                          <div class="form-group">
+			                            <label for="start-date">Start Date:</label>
+			                            <input type="date" class="form-control" id="start-date">
+			                          </div>
+			                          <div class="form-group">
+			                            <label for="month-rate">Monthly Rate:</label>
+			                            <input type="number" class="form-control" id="month-rate">
+			                          </div>
+			                          <button type="submit" id="onclick" class="btn btn-default">Submit</button>
+			                      </form>
+							</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+	
+	<footer>
+
+	</footer>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyABU03F02WDBHJo0mbEZxbHSHa6gjh2dSw",
+    authDomain: "train-schedule-d6491.firebaseapp.com",
+    databaseURL: "https://train-schedule-d6491.firebaseio.com",
+    projectId: "train-schedule-d6491",
+    storageBucket: "train-schedule-d6491.appspot.com",
+    messagingSenderId: "646057302572"
+  };
+  firebase.initializeApp(config);
+
+</script>
+
+</html>

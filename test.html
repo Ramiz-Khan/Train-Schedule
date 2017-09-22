@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Jquery -->
+
+    <head>
+    <!-- Javascript Animation Library -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+</head>
+  <body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+    <div id="buttons">
+    <label> <input id="query" value='cats' type="text"/><button id="search-button">Search</button></label>    
+    <div id="container">
+    <h1>Search Results</h1>
+    <ul id="results"></ul>
+    </div>           
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+
+    <script>
+
+$(document).ready( function() {
+console.log("inside js");
+
+// Youtube search Engine
+$("#search-button").on("click" function() {
+
+ function keyWordsearch(){
+    gapi.client.setApiKey('AIzaSyAC-jFqM93pgIsttltTzcNuoiKBI_49U5U');
+    gapi.client.load('youtube', 'v3', function(){
+            makeRequest();
+    });
+}
+function makeRequest(){
+    var q = $('#query').val();
+    var request = gapi.client.youtube.search.list({
+            q: q,
+            part: 'snippet', 
+            maxResults: 1
+    });
+    request.execute(function(response)  {                                                                                    
+            $('#results').empty()
+            var srchItems = response.result.items;                      
+            $.each(srchItems, function(index, item){
+            vidTitle = item.snippet.title;  
+            vidThumburl =  item.snippet.thumbnails.default.url;                 
+            vidThumbimg = '<pre><img id="thumb" src="'+vidThumburl+'" alt="No  Image  Available." style="width:204px;height:128px"></pre>';                   
+
+            $('#results').append('<pre>' + vidTitle + vidThumbimg +   '</pre>');                      
+   
+
+    })  
+  })  
+}
+
+
+// Zombie Timer
+var timer1 = null;
+
+var el=null;
+var score= 0; //number of 'hits'
+var shots = 0; //total 'shots'
+            
+            function moveIt(){
+                //animate the image
+                if(parseInt(el.style.left) > (screen.width - 50)) el.style.left = 0;
+                el.style.left = parseInt(el.style.left)+6+'px';
+                el.style.top = 20 + (80 * Math.sin(parseInt(el.style.left)/50)) + 'px';
+                
+                //set the timer1
+                timer1=setTimeout(moveIt,25);
+            }
+            
+
+
+            
+            function scoreUp(){
+                //increment the player's score
+                score++;
+            }
+            
+            function scoreboard(){
+                //display the scoreboard
+                document.getElementById("score").innerHTML="Shots: "+shots+" Score: "+score;
+            }
+            
+            window.onload=function(){
+                el=document.getElementById("img1");
+               
+                //onclick handler calls scoreUp()
+                //when img is clicked
+                el.onclick = scoreUp;
+                
+                //Update total of number of shots
+                //for every click within play field
+                document.getElementById("range").onclick = function(){
+                    shots++;
+                    
+                    //update scoreboard
+                    scoreboard();
+                }
+                
+                //Initialize game
+                scoreboard();
+                el.style.left = '50px'
+                moveIt();
+            };
+
+
+
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+      }});
+
+    </script>
+  </body>
+</html>

@@ -12,6 +12,12 @@ a {
 	color:	#17a2b8;
 }
 
+form {
+	margin: 30px;
+	text-align: left;
+
+}
+
 .navbar {
 	background: #FAFAFA;
 	position: fixed; /* Set the navbar to fixed position */
@@ -55,9 +61,10 @@ a {
 }
 
 #pb-bottom {
-	height: 60px;
 	font-size: 24px;
-	border-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 	padding-top: 10px;
+	padding-bottom: 10px;
 
 }
